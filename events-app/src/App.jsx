@@ -21,7 +21,7 @@
 
     const [Events, setEvents] = useState([
       {
-      title: "Sample Event",
+      title: "Sample Event 1",
       description: "This is a sample event description.",
       date: "2023-10-01",
       time: "10:00 AM",
@@ -30,7 +30,7 @@
     
     },
       {
-      title: "Sample Event",
+      title: "Sample Event 2",
       description: "This is a sample event description.",
       date: "2023-10-01",
       time: "10:00 AM",
@@ -39,7 +39,7 @@
     
     },
       {
-      title: "Sample Event",
+      title: "Sample Event 3",
       description: "This is a sample event description.",
       date: "2023-10-01",
       time: "10:00 AM",
@@ -48,7 +48,7 @@
     
     },
       {
-      title: "Sample Event",
+      title: "Sample Event 4",
       description: "This is a sample event description.",
       date: "2023-10-01",
       time: "10:00 AM",
@@ -57,7 +57,7 @@
     
     },
       {
-      title: "Sample Event",
+      title: "Sample Event 5",
       description: "This is a sample event description.",
       date: "2023-10-01",
       time: "10:00 AM",
@@ -66,7 +66,7 @@
     
     },
       {
-      title: "Sample Event",
+      title: "Sample Event 6",
       description: "This is a sample event description.",
       date: "2023-10-01",
       time: "10:00 AM",
