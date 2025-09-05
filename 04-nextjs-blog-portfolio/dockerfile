@@ -1,0 +1,40 @@
+# -------------------------
+# 1. Build stage
+# -------------------------
+FROM node:22.13.1-alpine AS builder
+
+# Set working directory
+WORKDIR /app
+
+# Copy only package files first (for better caching)
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install --legacy-peer-deps
+
+# Copy all project files
+COPY . .
+
+# Build Next.js for production
+RUN npm run build --legacy-peer-deps
+
+# -------------------------
+# 2. Production stage
+# -------------------------
+FROM node:22.13.1-alpine AS runner
+
+# Set working directory
+WORKDIR /app
+
+# Copy built app and necessary files from builder stage
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/next.config.mjs ./next.config.mjs
+
+# Expose Next.js default port
+EXPOSE 3000
+
+# Start the app in production mode
+CMD ["npm", "start"]
